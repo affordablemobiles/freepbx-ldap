@@ -1,0 +1,13 @@
+[Unit]
+Description=FreePBX LDAP Service
+
+[Service]
+PIDFile=/var/run/freepbx-ldap.pid
+User=asterisk
+Group=asterisk
+WorkingDirectory=/opt/freepbx-ldap
+ExecStart=/bin/bash -c '/opt/freepbx-ldap/freepbx-ldap'
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
