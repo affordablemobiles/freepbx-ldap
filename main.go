@@ -58,6 +58,7 @@ func handleSearchDSE(w ldap.ResponseWriter, m *ldap.Message) {
 	log.Printf("Request FilterString=%s", r.FilterString())
 	log.Printf("Request Attributes=%s", r.Attributes())
 	log.Printf("Request TimeLimit=%d", r.TimeLimit().Int())
+	log.Printf("Request SizeLimit=%d", r.SizeLimit().Int())
 
 	sql := "SELECT name, extension FROM users"
 	sqlVals := []interface{}{}
@@ -165,7 +166,8 @@ func handleSearchDSE(w ldap.ResponseWriter, m *ldap.Message) {
 
 	sql += " " + recursiveFilter(r.Filter(), true) + " "
 
-	sql += " ORDER BY name ASC"
+	sql += " ORDER BY name ASC LIMIT 0, ?"
+	sqlVals = append(sqlVals, r.SizeLimit().Int())
 
 	log.Printf("Query SQL: %s %#v", sql, sqlVals)
 	result, err := SQLSearch(sql, sqlVals)
