@@ -69,7 +69,7 @@ See examples below:
                 <ldap_port perm="">10389</ldap_port>
                 <ldap_base perm="">dc=asterisk</ldap_base>
                 <ldap_username perm="">asterisk</ldap_username>
-                <ldap_max_hits perm="">100</ldap_max_hits>
+                <ldap_max_hits perm="">25</ldap_max_hits>
                 <ldap_search_filter perm="">(&(telephoneNumber=*)(displayName=%))</ldap_search_filter>
                 <ldap_number_filter perm="">(&(telephoneNumber=%)(displayName=*))</ldap_number_filter>
                 <ldap_name_attributes perm="">displayName</ldap_name_attributes>
