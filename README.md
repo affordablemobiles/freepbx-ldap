@@ -58,6 +58,32 @@ See examples below:
 </settings>
 ```
 
+### Snom300 - snom300-main.htm
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+        <phone-settings>
+                *** Other Settings ***
+
+                <ldap_server perm="">***server_ip***</ldap_server>
+                <ldap_port perm="">10389</ldap_port>
+                <ldap_base perm="">dc=asterisk</ldap_base>
+                <ldap_username perm="">asterisk</ldap_username>
+                <ldap_max_hits perm="">100</ldap_max_hits>
+                <ldap_search_filter perm="">(&(telephoneNumber=*)(displayName=%))</ldap_search_filter>
+                <ldap_number_filter perm="">(&(telephoneNumber=%)(displayName=*))</ldap_number_filter>
+                <ldap_name_attributes perm="">displayName</ldap_name_attributes>
+                <ldap_number_attributes perm="">telephoneNumber</ldap_number_attributes>
+                <ldap_display_name perm="">%displayName</ldap_display_name>
+
+                <idle_cancel_key_action perm="">keyevent F_DIRECTORY_SEARCH</idle_cancel_key_action>
+        </phone-settings>
+        <functionKeys e="2">
+                <fkey idx="3" context="active" label="" perm="">keyevent F_DIRECTORY_SEARCH</fkey>
+        </functionKeys>
+</settings>
+```
+
 ### Polycom SoundPoint IP - sip.cfg (must be firmware UC 4+)
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
