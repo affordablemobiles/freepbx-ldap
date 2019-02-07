@@ -1,5 +1,5 @@
 # FreePBX LDAP Directory
-A simple LDAP server to serve an address book of internal extensions from the FreePBX DB
+A simple LDAP server to serve a searchable address book of internal extensions from the FreePBX DB
 
 ## How it works
 It starts the LDAP service on port 10389 and responds to queries unauthenticated, accepting any bind request without checking credentials.
