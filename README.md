@@ -2,11 +2,13 @@
 A simple LDAP server to serve a searchable address book of internal extensions from the FreePBX DB
 
 ## How it works
-It starts the LDAP service on port 10389 and responds to queries unauthenticated, accepting any bind request without checking credentials.
+It starts the LDAP service on port 10389 and responds to directory search requests by translating them into a SQL query against the "asterisk.users" table in MySQL.
 
-All queries are translated into a SQL query against the "asterisk.users" table in MySQL and a list of results returned, including only "name" and "extension".
+Since we aren't working with sensitive information or trying to implement authentication, but most phones require a bind request with a username & password before they'll search, it'll respond as success to any bind request without checking credentials.
 
 This means the address list will always be up-to-date, as there is no import/export.
+
+Two fields are returned for each result, "displayName" and "telephoneNumber".
 
 MySQL to LDAP mapping is:
 * "name" in MySQL maps to "displayName" in LDAP
