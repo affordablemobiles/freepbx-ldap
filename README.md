@@ -24,7 +24,7 @@ go build
 ## Recommended Install Procedure
 ```
 # mkdir -p /opt/freepbx-ldap
-# cp <ssh-bastion binary location> /opt/freepbx-ldap/freepbx-ldap
+# cp <freepbx-ldap binary location> /opt/freepbx-ldap/freepbx-ldap
 # chown -R asterisk:asterisk /opt/freepbx-ldap
 # cp <systemd/freepbx-ldap.service location> /etc/systemd/system/freepbx-ldap.service
 # systemctl daemon-reload
