@@ -26,6 +26,7 @@ go build
 # mkdir -p /opt/freepbx-ldap
 # cp <freepbx-ldap binary location> /opt/freepbx-ldap/freepbx-ldap
 # chown -R asterisk:asterisk /opt/freepbx-ldap
+# chmod +x /opt/freepbx-ldap/freepbx-ldap
 # cp <systemd/freepbx-ldap.service location> /etc/systemd/system/freepbx-ldap.service
 # systemctl daemon-reload
 # systemctl enable freepbx-ldap
