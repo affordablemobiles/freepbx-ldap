@@ -167,7 +167,11 @@ func handleSearchDSE(w ldap.ResponseWriter, m *ldap.Message) {
 	sql += " " + recursiveFilter(r.Filter(), true) + " "
 
 	sql += " ORDER BY name ASC LIMIT 0, ?"
-	sqlVals = append(sqlVals, r.SizeLimit().Int())
+	if r.SizeLimit().Int() > 0 {
+		sqlVals = append(sqlVals, r.SizeLimit().Int())
+	} else {
+		sqlVals = append(sqlVals, 99)
+	}
 
 	log.Printf("Query SQL: %s %#v", sql, sqlVals)
 	result, err := SQLSearch(sql, sqlVals)

@@ -1,0 +1,7 @@
+github.com/a1comms/goldap v0.0.0-20200408161836-36acb05c4fa0 h1:clLDwaQh/1nSvMZ+4TgIa9wzNpnVi+sT7ymhPN04NmM=
+github.com/a1comms/goldap v0.0.0-20200408161836-36acb05c4fa0/go.mod h1:rhEoqsvpT50cYK43wB7BgFREb0Ssa6RYOQCeOEuwsUo=
+github.com/go-sql-driver/mysql v1.5.0 h1:ozyZYNQW3x3HtqT1jira07DN2PArx2v7/mN66gGcHOs=
+github.com/go-sql-driver/mysql v1.5.0/go.mod h1:DCzpHaOWr8IXmIStZouvnhqoel9Qv2LBy8hT2VhHyBg=
+github.com/lor00x/goldap v0.0.0-20180618054307-a546dffdd1a3/go.mod h1:37YR9jabpiIxsb8X9VCIx8qFOjTDIIrIHHODa8C4gz0=
+github.com/vjeantet/ldapserver v0.0.0-20170919170217-479fece7c5f1 h1:VWE8ZC9ER1YIfx0V0QgZGdG4UB/nGeaSmKxesfVuheo=
+github.com/vjeantet/ldapserver v0.0.0-20170919170217-479fece7c5f1/go.mod h1:+KHPMCVmFBVXK3UAUom0AgP/IeOXH5C3ieEwA+JU3WE=
