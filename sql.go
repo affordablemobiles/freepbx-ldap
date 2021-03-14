@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"strings"
-
 	"database/sql"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -11,14 +10,9 @@ import (
 
 var (
 	dbConn *sql.DB
-
-	sqlserver string = "127.0.0.1:3306"
-	sqluser   string = "root"
-	sqlpass   string = ""
-	sqldb     string = "asterisk"
 )
 
-func SQLConnect() (err error) {
+func SQLConnect(sqlserver string, sqluser string, sqlpass string, sqldb string) (err error)  {
 	if strings.ContainsRune(sqlserver, ':') {
 		dbConn, err = sql.Open("mysql", sqluser+":"+sqlpass+"@tcp("+sqlserver+")/"+sqldb)
 	} else {
