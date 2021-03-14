@@ -24,7 +24,7 @@ func SQLConnect() (err error) {
 	} else {
 		dbConn, err = sql.Open("mysql", sqluser+":"+sqlpass+"@tcp("+sqlserver+":3306)/"+sqldb)
 	}
-	if err != nil {
+	if err == nil {
 		err = dbConn.Ping()
 	}
 	return
