@@ -11,7 +11,10 @@ import (
 )
 
 func main() {
-	err := SQLConnect()
+	sqlserver, sqluser, sqlpass, sqldb := getCreds()
+	log.Printf("DB Connection: Server=%s User=%s DB=%s", sqlserver, sqluser, sqldb)
+
+	err := SQLConnect(sqlserver, sqluser, sqlpass, sqldb)
 	if err != nil {
 		log.Printf("DB ERROR: %s", err.Error())
 		return
@@ -40,6 +43,22 @@ func main() {
 	close(ch)
 
 	server.Stop()
+}
+
+func getEnvVar(key, fallback string) string {
+    value, exists := os.LookupEnv(key)
+    if !exists {
+        value = fallback
+    }
+    return value
+}
+
+func getCreds() (string, string, string, string){
+	sqlserver := getEnvVar("FREEPBX_SQLSERVER", "127.0.0.1:3306")
+	sqluser := getEnvVar("FREEPBX_SQLUSER", "root")
+	sqlpass := getEnvVar("FREEPBX_SQLPASS", "")
+	sqldb := getEnvVar("FREEPBX_SQLDB", "asterisk")
+	return sqlserver, sqluser, sqlpass, sqldb
 }
 
 func handleBind(w ldap.ResponseWriter, m *ldap.Message) {
