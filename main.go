@@ -168,6 +168,10 @@ func handleSearchDSE(w ldap.ResponseWriter, m *ldap.Message) {
 					where += ret
 				}
 			}
+		case message.FilterSubstrings:
+			if ret := filterProcessSub(val); ret != "" {
+				where += ret
+			}
 		default:
 			log.Printf("Searching without filter...")
 		}
